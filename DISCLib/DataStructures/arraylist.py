@@ -50,26 +50,7 @@ def newList(cmpfunction, module, key, filename, delim):
     Raises:
 
     """
-    newlist = {'elements': [],
-               'size': 0,
-               'type': 'ARRAY_LIST',
-               'cmpfunction': cmpfunction,
-               'key': key,
-               'datastructure': module
-               }
-
-    if (cmpfunction is None):
-        newlist['cmpfunction'] = defaultfunction
-    else:
-        newlist['cmpfunction'] = cmpfunction
-
-    if (filename is not None):
-        input_file = csv.DictReader(open(filename, encoding="utf-8"),
-                                    delimiter=delim)
-        for line in input_file:
-            addLast(newlist, line)
-    # raise error.FunctionNotImplemented("new_list()")
-    return (newlist)
+    raise error.FunctionNotImplemented("new_list()")
 
 
 def addFirst(lst, element):
@@ -90,9 +71,7 @@ def addFirst(lst, element):
         Exception
     """
     try:
-        lst['elements'].insert(0, element)
-        lst['size'] += 1
-        # raise error.FunctionNotImplemented("add_first()")
+        raise error.FunctionNotImplemented("add_first()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->addFirst: ')
 
@@ -111,9 +90,7 @@ def addLast(lst, element):
         Exception
     """
     try:
-        lst['elements'].append(element)
-        lst['size'] += 1
-        # raise error.FunctionNotImplemented("add_last()")
+        raise error.FunctionNotImplemented("add_last()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->addLast: ')
 
@@ -128,8 +105,7 @@ def isEmpty(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("is_empty()")
-        return lst['size'] == 0
+        raise error.FunctionNotImplemented("is_empty()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->isEmpty: ')
 
@@ -144,8 +120,7 @@ def size(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("size()")
-        return lst['size']
+        raise error.FunctionNotImplemented("size()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->size: ')
 
@@ -161,8 +136,8 @@ def firstElement(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("first_element()")
-        return lst['elements'][0]
+        raise error.FunctionNotImplemented("first_element()")
+
     except Exception as exp:
         error.reraise(exp, 'arraylist->firstElement: ')
 
@@ -178,8 +153,7 @@ def lastElement(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("last_element()")
-        return lst['elements'][lst['size']-1]
+        raise error.FunctionNotImplemented("last_element()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->lastElement: ')
 
@@ -200,8 +174,7 @@ def getElement(lst, pos):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("get_element()")
-        return lst['elements'][pos-1]
+        raise error.FunctionNotImplemented("get_element()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->getElement: ')
 
@@ -242,10 +215,7 @@ def removeFirst(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("remove_first()")
-        element = lst['elements'].pop(0)
-        lst['size'] -= 1
-        return element
+        raise error.FunctionNotImplemented("remove_first()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->removeFirst: ')
 
@@ -264,10 +234,7 @@ def removeLast(lst):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("remove_last()")
-        element = lst['elements'].pop(lst['size']-1)
-        lst['size'] -= 1
-        return element
+        raise error.FunctionNotImplemented("remove_last()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->removeLast: ')
 
@@ -289,9 +256,7 @@ def insertElement(lst, element, pos):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("insert_element()")
-        lst['elements'].insert(pos-1, element)
-        lst['size'] += 1
+        raise error.FunctionNotImplemented("insert_element()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->insertElement: ')
 
@@ -313,18 +278,8 @@ def isPresent(lst, e):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("is_present()")
-        size = lst['size']
-        if size > 0:
-            keyexist = False
-            for keypos in range(1, size+1):
-                info = lst['elements'][keypos-1]
-                if (compareElements(lst, e, info) == 0):
-                    keyexist = True
-                    break
-            if keyexist:
-                return keypos
-        return 0
+        raise error.FunctionNotImplemented("is_present()")
+
     except Exception as exp:
         error.reraise(exp, 'arraylist->isPresent: ')
 
