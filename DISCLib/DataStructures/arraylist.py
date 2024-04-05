@@ -24,8 +24,9 @@
  *
  """
 
-from DISCLib.Utils import error as error
 import csv
+
+from DISCLib.Utils import error as error
 
 """
   Este módulo implementa una estructura de datos lineal,
@@ -57,7 +58,7 @@ def newList(cmpfunction, module, key, filename, delim):
                'datastructure': module
                }
 
-    if(cmpfunction is None):
+    if (cmpfunction is None):
         newlist['cmpfunction'] = defaultfunction
     else:
         newlist['cmpfunction'] = cmpfunction
@@ -399,7 +400,7 @@ def iterator(lst):
         Exception
     """
     try:
-        if(lst is not None):
+        if (lst is not None):
             for pos in range(0, lst['size']):
                 yield lst['elements'][pos]
     except Exception as exp:
@@ -421,7 +422,7 @@ def compareElements(lst, element, info):
     Raises:
         Exception
     """
-    if(lst['key'] is not None):
+    if (lst['key'] is not None):
         return lst['cmpfunction'](element[lst['key']], info[lst['key']])
     else:
         return lst['cmpfunction'](element, info)

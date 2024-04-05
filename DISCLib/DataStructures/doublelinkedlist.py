@@ -23,9 +23,10 @@
  *
  """
 
+import csv
+
 from DISCLib.DataStructures import listnode as lknode
 from DISCLib.Utils import error as error
-import csv
 
 """
   Este módulo implementa una estructura de datos lineal mediante una lista
@@ -68,7 +69,7 @@ def newList(cmpfunction, module,  key, filename, delim):
                'datastructure': module
                }
 
-    if(cmpfunction is None):
+    if (cmpfunction is None):
         newlist['cmpfunction'] = defaultfunction
     else:
         newlist['cmpfunction'] = cmpfunction
@@ -264,7 +265,7 @@ def deleteElement(lst, pos):
         if (sig is not None):
             sig['prev'] = prev
 
-        if(pos == lst['size']):
+        if (pos == lst['size']):
             lst['last'] = prev
 
         lst['size'] -= 1
@@ -371,7 +372,7 @@ def insertElement(lst, element, pos):
                 new_node['prev'] = prev
                 new_node['next'] = node
 
-            if(pos == lst['size']):
+            if (pos == lst['size']):
                 lst['last'] = new_node
 
         lst['size'] += 1
@@ -504,7 +505,7 @@ def iterator(lst):
         Exception
     """
     try:
-        if(lst is not None):
+        if (lst is not None):
             current = lst['first']
             while current is not None:
                 yield current['info']
@@ -529,7 +530,7 @@ def compareElements(lst, element, info):
         Exception
     """
     try:
-        if(lst['key'] is not None):
+        if (lst['key'] is not None):
             return lst['cmpfunction'](element[lst['key']], info[lst['key']])
         else:
             return lst['cmpfunction'](element, info)

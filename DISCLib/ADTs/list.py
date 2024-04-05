@@ -25,8 +25,8 @@
  """
 
 import importlib
-from DISCLib.Utils import error as error
 
+from DISCLib.Utils import error as error
 
 """
   Este módulo implementa el tipo abstracto de datos (TAD) lista.
@@ -404,7 +404,7 @@ def listSelector(datastructure):
 
     if ds is None:
         raise Exception(
-           f"Tipo de estructura de datos no soportada. Solo se soportan: {', '.join(switch_module.keys())}"
+            f"Tipo de estructura de datos no soportada. Solo se soportan: {', '.join(switch_module.keys())}"
         )
 
     module = importlib.import_module(ds, package="DISCLib.DataStructures")
