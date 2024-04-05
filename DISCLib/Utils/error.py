@@ -32,3 +32,14 @@ def reraise(excp, *args):
     """
     excp.args = args + excp.args
     raise excp.with_traceback(excp.__traceback__)
+
+
+class FunctionNotImplemented(Exception):
+    """
+    Estructura de error para funciones que no están implementadas
+    """
+
+    def __init__(self, function, type="NOT_IMPLEMENTED"):
+        self.function = function
+        self.type = type
+        super().__init__(self.function)

@@ -1,174 +1,153 @@
-import pytest
+from DISCLib.Tests.utils import handle_not_implemented
 
 from DISCLib.ADTs import list as lt
 
-lista = {}
+
+def setup_tests():
+    return lt.newList(datastructure="ARRAY_LIST")
 
 
-def validate_new_list(list):
-    if lista == "NOT_IMPLEMENTED":
-        pytest.skip("new_list() Not implemented yet")
-        return False
-    return True
-
-
-@pytest.fixture(autouse=True)
-def before_each():
-    lista = lt.newList(datastructure="ARRAY_LIST")
-    validate_new_list(lista)
-
-
+@handle_not_implemented
 def test_new_list():
+    lista = setup_tests()
     assert lista["type"] == "ARRAY_LIST"
     assert lista["size"] == 0
     assert lista["elements"] == []
 
 
-def validate_add_first(list):
-    if lista["elements"] == "NOT_IMPLEMENTED":
-        pytest.skip("add_first() Not implemented yet")
-        return False
-    return True
-
-
+@handle_not_implemented
 def test_add_first():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    assert lista["size"] == 3
+    assert lista["elements"] == [3, 2, 1]
+
+
+@handle_not_implemented
+def test_add_last():
+    lista = setup_tests()
+
+    lt.addLast(lista, 1)
+    lt.addLast(lista, 2)
+    lt.addLast(lista, 3)
+
+    assert lista["size"] == 3
+    assert lista["elements"] == [1, 2, 3]
+
+
+@handle_not_implemented
+def test_is_empty():
+    lista = setup_tests()
+
+    assert lt.isEmpty(lista) == True
+
+    lt.addFirst(lista, 1)
+    assert lt.isEmpty(lista) == False
+
+
+@handle_not_implemented
+def test_get_size():
+    lista = setup_tests()
+
+    assert lt.size(lista) == 0
+
     lt.addFirst(lista, 1)
 
-    if validate_add_first(lista):
-        lt.addFirst(lista, 2)
-        lt.addFirst(lista, 3)
-
-        assert lista["size"] == 3
-        assert lista["elements"] == [3, 2, 1]
+    assert lt.size(lista) == 1
 
 
-def test_add_last():
-    lt.addLast(lista, 1)
-
-    if lista["elements"] == "NOT_IMPLEMENTED":
-        pytest.skip("add_last() Not implemented yet")
-    else:
-        lt.addLast(lista, 2)
-        lt.addLast(lista, 3)
-
-        assert lista["size"] == 3
-        assert lista["elements"] == [1, 2, 3]
-
-
-def test_is_empty():
-
-    is_empty = lt.isEmpty(list)
-
-    if is_empty == "NOT_IMPLEMENTED":
-        pytest.skip("is_empty() Not implemented yet")
-
-    assert lt.isEmpty(list) == True
-
-    lt.addFirst(list, 1)
-
-    if validate_add_first(list):
-        assert lt.isEmpty(list) == False
-
-
-def test_get_size():
-
-    list = lt.newList(datastructure="ARRAY_LIST")
-
-    assert lt.size(list) == 0
-
-    lt.addFirst(list, 1)
-
-    assert lt.size(list) == 1
-
-
+@handle_not_implemented
 def test_get_first_element():
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lista = setup_tests()
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+    assert lt.firstElement(lista) == 3
 
-    assert lt.firstElement(list) == 3
 
-
+@handle_not_implemented
 def test_get_last_element():
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lista = setup_tests()
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.addFirst(lista, 1)
 
-    assert lt.lastElement(list) == 1
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+    assert lt.lastElement(lista) == 1
 
 
+@handle_not_implemented
 def test_get_element():
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lista = setup_tests()
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
 
-    assert lt.getElement(list, 1) == 3
-    assert lt.getElement(list, 2) == 2
-    assert lt.getElement(list, 3) == 1
+    assert lt.getElement(lista, 1) == 3
+    assert lt.getElement(lista, 2) == 2
+    assert lt.getElement(lista, 3) == 1
 
 
+@handle_not_implemented
 def test_remove_first():
+    lista = setup_tests()
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.removeFirst(lista)
 
-    lt.removeFirst(list)
-
-    assert list["size"] == 2
-    assert list["elements"] == [2, 1]
+    assert lista["size"] == 2
+    assert lista["elements"] == [2, 1]
 
 
+@handle_not_implemented
 def test_remove_last():
+    lista = setup_tests()
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.removeLast(lista)
 
-    lt.removeLast(list)
-
-    assert list["size"] == 2
-    assert list["elements"] == [3, 2]
+    assert lista["size"] == 2
+    assert lista["elements"] == [3, 2]
 
 
+@handle_not_implemented
 def test_insert_element():
+    lista = setup_tests()
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
+    lt.insertElement(lista, 2, 4)
 
-    lt.insertElement(list, 2, 4)
-
-    assert list["size"] == 4
-    assert list["elements"] == [3, 2, 1, 2]
+    assert lista["size"] == 4
+    assert lista["elements"] == [3, 2, 1, 2]
 
 
+@handle_not_implemented
 def test_is_present():
+    lista = setup_tests()
 
-    list = lt.newList(datastructure="ARRAY_LIST")
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
 
-    lt.addFirst(list, 1)
-    lt.addFirst(list, 2)
-    lt.addFirst(list, 3)
-
-    print(list)
-
-    assert lt.isPresent(list, 1) == 3
-    assert lt.isPresent(list, 2) == 2
-    assert lt.isPresent(list, 3) == 1
-    assert lt.isPresent(list, 4) == 0
+    assert lt.isPresent(lista, 1) == 3
+    assert lt.isPresent(lista, 2) == 2
+    assert lt.isPresent(lista, 3) == 1
+    assert lt.isPresent(lista, 4) == 0

@@ -25,7 +25,7 @@
 
 import csv
 
-from DISCLib.DataStructures import listnode as node
+from DISCLib.DataStructures.Nodes import listnode as node
 from DISCLib.Utils import error as error
 
 """
