@@ -83,6 +83,7 @@ def newList(cmpfunction, module, key, filename, delim):
                                     delimiter=delim)
         for line in input_file:
             addLast(newlist, line)
+    # raise error.FunctionNotImplemented("single_linked_list.new_list()")
     return newlist
 
 
@@ -104,6 +105,7 @@ def addFirst(lst, element):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("single_linked_list.add_first()")
         new_node = node.newSingleNode(element)
         new_node['next'] = lst['first']
         lst['first'] = new_node
