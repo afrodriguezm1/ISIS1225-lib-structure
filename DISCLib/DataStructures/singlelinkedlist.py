@@ -65,26 +65,7 @@ def newList(cmpfunction, module, key, filename, delim):
     Raises:
 
     """
-    newlist = {'first': None,
-               'last': None,
-               'size': 0,
-               'key': key,
-               'type': 'SINGLE_LINKED',
-               'datastructure': module
-               }
-
-    if (cmpfunction is None):
-        newlist['cmpfunction'] = defaultfunction
-    else:
-        newlist['cmpfunction'] = cmpfunction
-
-    if (filename is not None):
-        input_file = csv.DictReader(open(filename, encoding="utf-8"),
-                                    delimiter=delim)
-        for line in input_file:
-            addLast(newlist, line)
-    # raise error.FunctionNotImplemented("single_linked_list.new_list()")
-    return newlist
+    raise error.FunctionNotImplemented("new_list()")
 
 
 def addFirst(lst, element):
@@ -105,14 +86,7 @@ def addFirst(lst, element):
         Exception
     """
     try:
-        # raise error.FunctionNotImplemented("single_linked_list.add_first()")
-        new_node = node.newSingleNode(element)
-        new_node['next'] = lst['first']
-        lst['first'] = new_node
-        if (lst['size'] == 0):
-            lst['last'] = lst['first']
-        lst['size'] += 1
-        return lst
+        raise error.FunctionNotImplemented("add_first()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->addFirst: ')
 
@@ -131,15 +105,7 @@ def addLast(lst, element):
         Exception
     """
     try:
-        new_node = node.newSingleNode(element)
-
-        if lst['size'] == 0:
-            lst['first'] = new_node
-        else:
-            lst['last']['next'] = new_node
-        lst['last'] = new_node
-        lst['size'] += 1
-        return lst
+        raise error.FunctionNotImplemented("add_last()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->addLast: ')
 
@@ -153,7 +119,7 @@ def isEmpty(lst):
         Exception
     """
     try:
-        return lst['size'] == 0
+        raise error.FunctionNotImplemented("is_empty()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->isEmpty: ')
 
@@ -167,7 +133,7 @@ def size(lst):
         Exception
     """
     try:
-        return lst['size']
+        raise error.FunctionNotImplemented("size()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->size: ')
 
@@ -183,9 +149,7 @@ def firstElement(lst):
         Exception
     """
     try:
-        if lst['first'] is not None:
-            return lst['first']['info']
-        return None
+        raise error.FunctionNotImplemented("first_element()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->firstElement: ')
 
@@ -201,9 +165,7 @@ def lastElement(lst):
         Exception
     """
     try:
-        if lst['last'] is not None:
-            return lst['last']['info']
-        return None
+        raise error.FunctionNotImplemented("last_element()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->lastElement: ')
 
@@ -224,12 +186,7 @@ def getElement(lst, pos):
         Exception
     """
     try:
-        searchpos = 1
-        node = lst['first']
-        while searchpos < pos:
-            searchpos += 1
-            node = node['next']
-        return node['info']
+        raise error.FunctionNotImplemented("get_element()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->getElement: ')
 
@@ -250,20 +207,7 @@ def deleteElement(lst, pos):
         Exception
     """
     try:
-        node = lst['first']
-        prev = lst['first']
-        searchpos = 1
-        if (pos == 1):
-            lst['first'] = lst['first']['next']
-            lst['size'] -= 1
-        elif (pos > 1):
-            while searchpos < pos:
-                searchpos += 1
-                prev = node
-                node = node['next']
-            prev['next'] = node['next']
-            lst['size'] -= 1
-        return lst
+        raise error.FunctionNotImplemented("delete_element()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->deleteElement: ')
 
@@ -280,16 +224,7 @@ def removeFirst(lst):
         Exception
     """
     try:
-        if lst['first'] is not None:
-            temp = lst['first']['next']
-            node = lst['first']
-            lst['first'] = temp
-            lst['size'] -= 1
-            if (lst['size'] == 0):
-                lst['last'] = lst['first']
-            return node['info']
-        else:
-            return None
+        raise error.FunctionNotImplemented("remove_first()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->removeFirst: ')
 
@@ -308,22 +243,7 @@ def removeLast(lst):
         Exception
     """
     try:
-        if lst['size'] > 0:
-            if lst['first'] == lst['last']:
-                node = lst['first']
-                lst['last'] = None
-                lst['first'] = None
-            else:
-                temp = lst['first']
-                while temp['next'] != lst['last']:
-                    temp = temp['next']
-                node = lst['last']
-                lst['last'] = temp
-                lst['last']['next'] = None
-            lst['size'] -= 1
-            return node['info']
-        else:
-            return None
+        raise error.FunctionNotImplemented("remove_last()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->remoLast: ')
 
@@ -344,28 +264,7 @@ def insertElement(lst, element, pos):
         Exception
     """
     try:
-        new_node = node.newSingleNode(element)
-        if (lst['size'] == 0):
-            lst['first'] = new_node
-            lst['last'] = new_node
-
-        elif ((lst['size'] > 0) and (pos == 1)):
-            new_node['next'] = lst['first']
-            lst['first'] = new_node
-
-        else:
-            cont = 1
-            prev = lst['first']
-            current = lst['first']
-            while cont < pos:
-                prev = current
-                current = current['next']
-                cont += 1
-            new_node['next'] = current
-            prev['next'] = new_node
-
-        lst['size'] += 1
-        return lst
+        raise error.FunctionNotImplemented("insert_element()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->insertElement: ')
 
@@ -387,19 +286,7 @@ def isPresent(lst, element):
         Exception
     """
     try:
-        size = lst['size']
-        if size > 0:
-            node = lst['first']
-            keyexist = False
-            for keypos in range(1, size+1):
-                if (node is not None):
-                    if (compareElements(lst, element, node['info']) == 0):
-                        keyexist = True
-                        break
-                    node = node['next']
-            if keyexist:
-                return keypos
-        return 0
+        raise error.FunctionNotImplemented("is_present()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->isPresent: ')
 
@@ -418,13 +305,7 @@ def changeInfo(lst, pos, newinfo):
         Exception
     """
     try:
-        current = lst['first']
-        cont = 1
-        while cont < pos:
-            current = current['next']
-            cont += 1
-        current['info'] = newinfo
-        return lst
+        raise error.FunctionNotImplemented("change_info()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->changeInfo: ')
 
@@ -441,11 +322,7 @@ def exchange(lst, pos1, pos2):
         Exception
     """
     try:
-        infopos1 = getElement(lst, pos1)
-        infopos2 = getElement(lst, pos2)
-        changeInfo(lst, pos1, infopos2)
-        changeInfo(lst, pos2, infopos1)
-        return lst
+        raise error.FunctionNotImplemented("exchange()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->exchange: ')
 
@@ -466,21 +343,7 @@ def subList(lst, pos, numelem):
         Exception
     """
     try:
-        sublst = {'first': None,
-                  'last': None,
-                  'size': 0,
-                  'type': 'SINGLE_LINKED',
-                  'key': lst['key'],
-                  'datastructure': lst['datastructure'],
-                  'cmpfunction': lst['cmpfunction']}
-        cont = 1
-        loc = pos
-        while cont <= numelem:
-            elem = getElement(lst, loc)
-            addLast(sublst, elem)
-            loc += 1
-            cont += 1
-        return sublst
+        raise error.FunctionNotImplemented("sub_list()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->subList: ')
 
@@ -494,11 +357,7 @@ def iterator(lst):
         Exception
     """
     try:
-        if (lst is not None):
-            current = lst['first']
-            while current is not None:
-                yield current['info']
-                current = current['next']
+        raise error.FunctionNotImplemented("iterator()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->Iterator')
 
@@ -519,10 +378,7 @@ def compareElements(lst, element, info):
         Exception
     """
     try:
-        if (lst['key'] is not None):
-            return lst['cmpfunction'](element[lst['key']], info[lst['key']])
-        else:
-            return lst['cmpfunction'](element, info)
+        raise error.FunctionNotImplemented("compare_elements()")
     except Exception as exp:
         error.reraise(exp, 'singlelinkedlist->compareElements')
 
