@@ -15,9 +15,9 @@ def execute_all_tests():
 
 
 def execute_list_tests():
-    os.system('pytest -v -k "_array_list"')
-    os.system('pytest -v -k "_linked_list"')
-    # os.system('pytest -v -k "_double_linked_list"')
+    os.system('pytest -v -k "test_array_list"')
+    os.system('pytest -v -k "test_linked_list"')
+    # os.system('pytest -v -k "test_double_linked_list"')
 
 
 if __name__ == "__main__":
