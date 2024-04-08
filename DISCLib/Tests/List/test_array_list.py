@@ -1,6 +1,5 @@
-from DISCLib.Tests.utils import handle_not_implemented
-
 from DISCLib.ADTs import list as lt
+from DISCLib.Tests.utils import handle_not_implemented
 
 
 def setup_tests():
@@ -151,3 +150,71 @@ def test_is_present():
     assert lt.isPresent(lista, 2) == 2
     assert lt.isPresent(lista, 3) == 1
     assert lt.isPresent(lista, 4) == 0
+
+
+@handle_not_implemented
+def test_delete_element():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    lt.deleteElement(lista, 2)
+
+    assert lista["size"] == 2
+    assert lista["elements"] == [3, 1]
+
+
+@handle_not_implemented
+def test_change_info():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    lt.changeInfo(lista, 2, 4)
+
+    assert lista["size"] == 3
+    assert lista["elements"] == [3, 4, 1]
+
+
+@handle_not_implemented
+def test_exchange():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    lt.exchange(lista, 1, 2)
+
+    assert lista["size"] == 3
+    assert lista["elements"] == [2, 3, 1]
+
+
+@handle_not_implemented
+def test_sublist():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    sublist = lt.subList(lista, 1, 2)
+
+    assert sublist["size"] == 2
+    assert sublist["elements"] == [3, 2]
+    assert sublist["type"] == "ARRAY_LIST"
+
+
+@handle_not_implemented
+def test_iterator():
+    lista = setup_tests()
+
+    lt.addFirst(lista, 1)
+    lt.addFirst(lista, 2)
+    lt.addFirst(lista, 3)
+
+    it = lt.iterator(lista)

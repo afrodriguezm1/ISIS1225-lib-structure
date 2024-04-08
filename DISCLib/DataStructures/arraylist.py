@@ -222,6 +222,7 @@ def deleteElement(lst, pos):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("delete_element()")
         lst['elements'].pop(pos-1)
         lst['size'] -= 1
     except Exception as exp:
@@ -343,6 +344,7 @@ def changeInfo(lst, pos, newinfo):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("change_info()")
         lst['elements'][pos-1] = newinfo
     except Exception as exp:
         error.reraise(exp, 'arraylist->changeInfo: ')
@@ -360,6 +362,7 @@ def exchange(lst, pos1, pos2):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("exchange()")
         infopos1 = getElement(lst, pos1)
         infopos2 = getElement(lst, pos2)
         changeInfo(lst, pos1, infopos2)
@@ -385,6 +388,7 @@ def subList(lst, pos, numelem):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("sublist()")
         sublst = {'elements': [],
                   'size': 0,
                   'type': 'ARRAY_LIST',
@@ -412,6 +416,7 @@ def iterator(lst):
         Exception
     """
     try:
+        # raise error.FunctionNotImplemented("iterator()")
         if (lst is not None):
             for pos in range(0, lst['size']):
                 yield lst['elements'][pos]
@@ -434,6 +439,7 @@ def compareElements(lst, element, info):
     Raises:
         Exception
     """
+    # raise error.FunctionNotImplemented("compare_elements()")
     if (lst['key'] is not None):
         return lst['cmpfunction'](element[lst['key']], info[lst['key']])
     else:
