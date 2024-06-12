@@ -22,12 +22,8 @@
 
 import traceback
 from tabulate import tabulate
-import config as cf
 import sys
 import controller
-from DataStructures.ADT import list as lt
-from DISClib.ADT import stack as st
-from DISClib.ADT import queue as qu
 assert cf
 
 """
