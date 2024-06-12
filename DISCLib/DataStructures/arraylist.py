@@ -90,9 +90,7 @@ def addFirst(lst, element):
         Exception
     """
     try:
-        lst['elements'].insert(0, element)
-        lst['size'] += 1
-        # raise error.FunctionNotImplemented("add_first()")
+        raise error.FunctionNotImplemented("add_first()")
     except Exception as exp:
         error.reraise(exp, 'arraylist->addFirst: ')
 
